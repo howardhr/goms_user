@@ -130,7 +130,8 @@ func makeGetEndpoint(s Service) Controller {
 			json.NewEncoder(w).Encode(&Response{Status: 400, Err: "El usuario no existe"})
 			return
 		}
-		json.NewEncoder(w).Encode(user)
+
+		json.NewEncoder(w).Encode(&Response{Status: 200, Data: user})
 	}
 }
 func makeUpdateEndpoint(s Service) Controller {
